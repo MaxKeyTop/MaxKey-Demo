@@ -1,0 +1,14 @@
+/*
+ * in the user guide at https://docs.gradle.org
+ */
+rootProject.name = 'MaxKey-Demos'
+
+
+//demo
+//include 'maxkey-demos'
+include 'maxkey-demo-cas'
+include 'maxkey-demo-ltpa'
+include 'maxkey-demo-oauth'
+include 'maxkey-demo-saml'
+include 'maxkey-demo-tokenbase'
+include 'maxkey-demo-jwt'
