@@ -22,12 +22,12 @@
 		<!-- cas server login url -->
 		<init-param>
 			<param-name>casServerLoginUrl</param-name>
-			<param-value>>http://sso.maxkey.org/maxkey/authz/cas/</param-value>
+			<param-value>>https://sso.maxkey.org/maxkey/authz/cas/</param-value>
 		</init-param>
 		<!-- cas client url, in end of url / is required -->
 		<init-param>
 			<param-name>serverName</param-name>
-			<param-value>http://casdemo.maxkey.org/</param-value>
+			<param-value>http://cas.demo.maxkey.org:8080/</param-value>
 		</init-param>
 	</filter>
 	<filter-mapping>
@@ -42,12 +42,12 @@
 		<!-- cas server login url -->
 		<init-param>
 			<param-name>casServerUrlPrefix</param-name>
-			<param-value>http://sso.maxkey.org/maxkey/authz/cas/</param-value>
+			<param-value>https://sso.maxkey.org/maxkey/authz/cas/</param-value>
 		</init-param>
 		<!-- cas client url -->
 		<init-param>
 			<param-name>serverName</param-name>
-			<param-value>http://casdemo.maxkey.org/</param-value>
+			<param-value>http://cas.demo.maxkey.org:8080/</param-value>
 		</init-param>
 	</filter>
 	<filter-mapping>

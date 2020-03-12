@@ -1,7 +1,7 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%@ page language="java" import="org.maxkey.client.oauth.oauth.*" %>
 <%@ page language="java" import="org.maxkey.client.oauth.builder.*" %>
-<%@ page language="java" import="org.maxkey.client.oauth.builder.api.ConnsecApi20" %>
+<%@ page language="java" import="org.maxkey.client.oauth.builder.api.MaxkeyApi20" %>
 <%@ page language="java" import="org.maxkey.client.oauth.model.*" %>
 <%@ page language="java" import="org.maxkey.client.oauth.*" %>
 <%@ page language="java" import="org.maxkey.client.oauth.domain.*" %>
@@ -13,9 +13,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 OAuthService service = (OAuthService)request.getSession().getAttribute("oauthv20service");
 
 if(service==null){
-	String callback="http://oauthdemo.maxkey.org:8080/oauthdemo/oauth20callback.jsp";
+	String callback="http://oauth.demo.maxkey.org:8080/demo-oauth/oauth20callback.jsp";
 	service = new ServiceBuilder()
-     .provider(ConnsecApi20.class)
+     .provider(MaxkeyApi20.class)
      .apiKey("b32834accb544ea7a9a09dcae4a36403")
      .apiSecret("E9UO53P3JH52aQAcnLP2FlLv8olKIB7u")
      .callback(callback)
@@ -26,7 +26,7 @@ Token EMPTY_TOKEN = null;
 Verifier verifier = new Verifier(request.getParameter("code"));
 Token accessToken = service.getAccessToken(EMPTY_TOKEN, verifier);
  
-OAuthClient restClient=new OAuthClient("http://login.connsec.com/maxkey/api/oauth/v20/me");
+OAuthClient restClient=new OAuthClient("https://sso.maxkey.org/maxkey/api/oauth/v20/me");
  
  UserInfo userInfo=restClient.getUserInfo(accessToken.getAccess_token());
  

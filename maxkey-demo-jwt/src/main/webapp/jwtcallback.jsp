@@ -7,10 +7,12 @@
 <%@ page language="java" import="com.nimbusds.jwt.JWTClaimsSet" %>
 <%@ page language="java" import="com.nimbusds.jose.*" %>
 <%@ page language="java" import="com.nimbusds.jwt.*" %>
+<%@ page language="java" import="com.connsec.oidc.jose.keystore.*" %>
 <%@ page language="java" import="com.nimbusds.jose.jwk.*" %>
 <%@ page language="java" import="java.io.File" %>
 <%@ page language="java" import="com.nimbusds.jose.crypto.*" %>
 <%@ page language="java" import="com.google.gson.*" %>
+
 
 
 <%
@@ -34,7 +36,6 @@ try {
 }
 
 System.out.println("signedJWT "+signedJWT);
-
 JWTClaimsSet jwtClaims =signedJWT.getJWTClaimsSet();
  
 %>

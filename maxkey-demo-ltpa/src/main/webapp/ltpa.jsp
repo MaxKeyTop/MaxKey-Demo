@@ -5,11 +5,11 @@
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 
-String ltpaVaule=LtpaUtils.readLtpa(request, "connsec.com", "ltpa");
-System.out.println("============"+ltpaVaule);
+String ltpaVaule=LtpaUtils.readLtpa(request, "maxkey.org", "ltpa");
+System.out.println("============ ltpaVaule "+ltpaVaule);
 Map tokenMap=null;
 if(ltpaVaule!=null){
-	String ltpaString=LtpaUtils.decode(ltpaVaule, "h560BIVz", ReciprocalUtils.Algorithm.DES);
+	String ltpaString=LtpaUtils.decode(ltpaVaule, "k1tk41Ng", ReciprocalUtils.Algorithm.DES);
 	tokenMap=LtpaUtils.parseLtpaJson(ltpaString);
 }
 

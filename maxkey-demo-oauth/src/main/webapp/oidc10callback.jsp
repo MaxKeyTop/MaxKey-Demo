@@ -1,7 +1,7 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%@ page language="java" import="org.maxkey.client.oauth.oauth.*" %>
 <%@ page language="java" import="org.maxkey.client.oauth.builder.*" %>
-<%@ page language="java" import="org.maxkey.client.oauth.builder.api.ConnsecApi20" %>
+<%@ page language="java" import="org.maxkey.client.oauth.builder.api.MaxkeyApi20" %>
 <%@ page language="java" import="org.maxkey.client.oauth.model.*" %>
 <%@ page language="java" import="org.maxkey.client.oauth.*" %>
 <%@ page language="java" import="org.maxkey.client.oauth.domain.*" %>
@@ -15,8 +15,6 @@
 <%@ page language="java" import="com.nimbusds.jose.crypto.*" %>
 <%@ page language="java" import="com.google.gson.*" %>
 
-
-
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -24,9 +22,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 OAuthService service = (OAuthService)request.getSession().getAttribute("oauthv20service");
 
 if(service==null){
-	String callback="http://oauthdemo.maxkey.org:8080/oauthdemo/oidc10callback.jsp";
+	String callback="http://oauth.demo.maxkey.org:8080/demo-oauth/oidc10callback.jsp";
 	service = new ServiceBuilder()
-     .provider(ConnsecApi20.class)
+     .provider(MaxkeyApi20.class)
      .apiKey("ae20330a-ef0b-4dad-9f10-d5e3485ca2ad")
      .apiSecret("JQygMDgwMTIwMTUyMjU5NTgyNTc2RD")
      .callback(callback)
@@ -45,7 +43,7 @@ SignedJWT signedJWT=null;
 File jwksFile=new File(PathUtils.getInstance().getClassPath()+"jwk.jwks");
 JWKSet jwkSet=JWKSet.load(jwksFile);
 
-RSASSAVerifier rsaSSAVerifier = new RSASSAVerifier(((RSAKey) jwkSet.getKeyByKeyId("connsec_rsa")).toRSAPublicKey());
+RSASSAVerifier rsaSSAVerifier = new RSASSAVerifier(((RSAKey) jwkSet.getKeyByKeyId("maxkey_rsa")).toRSAPublicKey());
 try {
     signedJWT = SignedJWT.parse(accessToken.getId_token());
 } catch (java.text.ParseException e) {
@@ -53,9 +51,9 @@ try {
 }
 ;
 
-OAuthClient restClient=new OAuthClient("http://login.connsec.com/maxkey/api/connect/v10/userinfo",accessToken.getToken());
+OAuthClient restClient=new OAuthClient("https://sso.maxkey.org/maxkey/api/connect/v10/userinfo",accessToken.getToken());
  
- OIDCUserInfo userInfo=restClient.getOIDCUserInfo(accessToken.getToken());
+OIDCUserInfo userInfo=restClient.getOIDCUserInfo(accessToken.getToken());
  
  
 %>

@@ -11,8 +11,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+path+"/";
 String callback="http://oauth.demo.maxkey.org:8080/demo-oauth/oauth20callback.jsp";
 OAuthService service = new ServiceBuilder()
                             .provider(ConnsecApi20.class)
-                            .apiKey("b32834accb544ea7a9a09dcae4a36403")
-                            .apiSecret("E9UO53P3JH52aQAcnLP2FlLv8olKIB7u")
+                            .apiKey("ae20330a-ef0b-4dad-9f10-d5e3485ca2ad")
+                            .apiSecret("JQygMDgwMTIwMTUyMjU5NTgyNTc2RD")
                             .callback(callback)
                             .build();
 Token EMPTY_TOKEN = null;
