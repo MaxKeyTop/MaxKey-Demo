@@ -22,7 +22,7 @@
 		<!-- cas server login url -->
 		<init-param>
 			<param-name>casServerLoginUrl</param-name>
-			<param-value>>https://sso.maxkey.org/maxkey/authz/cas/</param-value>
+			<param-value>https://sso.maxkey.org/maxkey/authz/cas/</param-value>
 		</init-param>
 		<!-- cas client url, in end of url / is required -->
 		<init-param>
